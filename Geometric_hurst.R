@@ -26,7 +26,7 @@ data_frame_bellissimo<-data.frame(andrea,alessio[-1256,],silvia,matteo[-1256,])
 for (i in 1:length(m)){
 D[i]<- tail(data_frame_bellissimo[,i],1)-head(data_frame_bellissimo[,i],1)
 }
-
+############################PROVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 data<- data.frame(D= seq(1:d),value=c(D[1],D[2],D[3],D[4])   )
 myplot<-ggplot(data)+geom_point(aes(x=log2(length(res)),y=(mean(D))))

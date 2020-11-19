@@ -34,7 +34,7 @@ for(i in 1:length(Z)){
 S<-c()
 
 for ( i in 1:length(Range)){
-  S[i]<-(1/i)*sum((res[1:i]-mean(res[1:i]))^2)
+  S[i]<-((1/i)*sum((res[1:i]-mean(res[1:i]))^2))^(1/2)
 }
 
 ##  Calculate standard deviation series S
@@ -51,6 +51,9 @@ print(myplot)
 alessio<-coeff[2]
 alessio
 }
+
+## Hurst bellissimo corretto ha bisogno di fix.
+
 Hurst_bellissimo_corretto<-function(apple){
   apple$Adj.Close<-apple$Adj.Close %>%na.omit()
   res<-c()
@@ -87,7 +90,7 @@ Hurst_bellissimo_corretto<-function(apple){
   S<-c()
   
   for ( i in 1:length(Range)){
-    S[i]<-(1/i)*sum((res[1:i]-mean(res[1:i]))^2)
+    S[i]<-((1/i)*sum((res[1:i]-mean(res[1:i]))^2))^(1/2)
   }
   
   ##  Calculate standard deviation series S
@@ -109,6 +112,9 @@ Hurst_bellissimo_corretto<-function(apple){
   alessio<-coeff[2]
   alessio
 }
+
+## Migliora comando Date
+
 Selected_hurst_bellissimo<-function(apple,Date){
   matteo<-apple$Adj.Close[1:Date] %>%na.omit()
   
@@ -146,7 +152,7 @@ Selected_hurst_bellissimo<-function(apple,Date){
   S<-c()
   
   for ( i in 1:length(Range)){
-    S[i]<-(1/i)*sum((res[1:i]-mean(res[1:i]))^2)
+    S[i]<-((1/i)*sum((res[1:i]-mean(res[1:i]))^2))^(1/2)
   }
   
   ##  Calculate standard deviation series S
@@ -167,7 +173,7 @@ Selected_hurst_bellissimo(apple,Date = 2500)
 
 
 
-## PLOT
+## PLOT serve tanto miglioramento
 str(X)
 plot_moving_hurst_bellissimo<-function(apple,Date){
   andrea<-c()

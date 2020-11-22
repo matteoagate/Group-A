@@ -50,7 +50,7 @@ meanabsv
 
 #### 
 
-x<-seq(1:m)
+x<-seq(1:d)
 
 l<-lm(log(meanabsv)~ log(x))
 summary(l)

@@ -50,45 +50,36 @@ ritorni_tutti <- ritorni_tutti %>% mutate(Y1 = cumsum(x), Y2 = cumsum(V2),
 # we need a verctor that specifies the n
 
 t <- c(1:2517)
-Y1hat <- lm(ritorni_tutti$Y1 ~ t)
-summary(Y1hat)
-b1 <- summary(Y1hat)$coefficients[1,1]
-a1 <- summary(Y1hat)$coefficients[2,1]
 
-Y2hat <- lm(ritorni_tutti$Y2 ~ t)
-summary(Y2hat)
-b2 <- summary(Y2hat)$coefficients[1,1]
-a2 <- summary(Y2hat)$coefficients[2,1]
+b <- c()
+for (i in 1:4) {
+  b[i] <- summary(lm(ritorni_tutti[,i+4] ~ t))$coefficients[1]
+}
 
-Y3hat <- lm(ritotni_tutti$Y3 ~ t)
-summary(Y3hat)
-b3 <- summary(Y3hat)$coefficients[1,1]
-a3 <- summary(Y3hat)$coefficients[2,1]
-
-Y4hat <- lm(ritorni_tutti$Y4 ~ t)
-summary(Y4hat)
-b4 <- summary(Y4hat)$coefficients[1,1]
-a4 <- summary(Y4hat)$coefficients[2,1]
+a <- c()
+for (i in 1:4) {
+  a[i] <- summary(lm(ritorni_tutti[,i+4] ~ t))$coefficients[2]
+}
 
 # we compute the root root mean square fluctuation of the detrended series
 
-Y1m <- (ritorni_tutti$Y1 - a1 - b1)
-Y1m2 <- (ritorni_tutti$Y1 - a1 - b1)^(2)
+Y1m <- (ritorni_tutti$Y1 - a[1] - b[1])
+Y1m2 <- (ritorni_tutti$Y1 - a[1] - b[1])^(2)
 sumY1m2 <- sum(Y1m2)
 F1 <- (sumY1m2/2517)^(1/2)
 
-Y2m <- (ritorni_tutti$Y2 - a2 - b2)
-Y2m2 <- (ritorni_tutti$Y2 - a2 - b2)^(2)
+Y2m <- (ritorni_tutti$Y2 - a[2] - b[2])
+Y2m2 <- (ritorni_tutti$Y2 - a[2] - b[2])^(2)
 sumY2m2 <- sum(Y2m2)
 F2 <- (sumY2m2/2517)^(1/2)
 
-Y3m <- (ritorni_tutti$Y3 - a3 - b3)
-Y3m2 <- (ritorni_tutti$Y3 - a3 - b3)^(2)
+Y3m <- (ritorni_tutti$Y3 - a[3] - b[3])
+Y3m2 <- (ritorni_tutti$Y3 - a[3] - b[3])^(2)
 sumY3m2 <- sum(Y3m2)
 F3 <- (sumY3m2/2517)^(1/2)
 
-Y4m <- (ritorni_tutti$Y4 - a4 - b4)
-Y4m2 <- (ritorni_tutti$Y4 - a4 - b4)^(2)
+Y4m <- (ritorni_tutti$Y4 - a[4] - b[4])
+Y4m2 <- (ritorni_tutti$Y4 - a[4] - b[4])^(2)
 sumY4m2 <- sum(Y4m2)
 F4 <- (sumY4m2/2517)^(1/2)
 
@@ -99,6 +90,6 @@ F4 <- (sumY4m2/2517)^(1/2)
 Fn <- (F1 + F2 + F3 + F4)/4
 
 prova<-data_frame(Y1m, Y2m, Y3m, Y4m)
-final_prova<- prova %>% mutate(mean= ((Y1m+Y2m+Y3m+Y4m))^2/(4*2517))
+final_prova<- prova %>% mutate(mean= (((Y1m+Y2m+Y3m+Y4m))^2/(2517))^(1/2))/4
 
 lm(log(final_prova$mean)~log(t))%>% summary()

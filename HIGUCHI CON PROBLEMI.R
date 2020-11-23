@@ -31,7 +31,7 @@ curvelength2<-function(X,k,N){
 
 LK<-c()
 for (i in 1:Kmax) {
-  LK[i]<-prova(X,i,N)
+  LK[i]<-curvelength2(X,i,N)
   
 }
 #Made the plot and the regression

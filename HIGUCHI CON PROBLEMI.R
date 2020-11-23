@@ -9,37 +9,36 @@ Kmax<-200
 
 
 #Created a function in order to calculate the Higuchi's fractal dimension
-
-curvelength<- function(ret,K,N,m){
+curvelength1<.function(ret,K,N,m){
   c<-c()
   for (i in 1:round(((N-m)/K))) {
     c[i]<- abs(ret[m+i*K]-ret[m+(i-1)*K])*((N-1)/((round(((N-m)/K)))*K))/K
   }
   c<-na.omit(c)
-  return(c)}
+  csum<-sum(c)/K  
+  return(csum)}
 
-curvelenghtvec<-list()
-
-for (i in 1:Kmax) {
-  for (m in 1:i){
-    curvelenghtvec[[i]]<-curvelength(X,i,N,m)
-    }
+curvelength2<-function(X,k,N){
+  L<-c()
+  for (m in 1:k) {
+    L[m]<-curvelength(X,k,N,m)
+  }
+  L<-log(sum(L)/k)
+  return(L)
 }
 
-curvelengthfinal<-c()
+#This funcion calculate the lenght of the vector for all possible k
+
+LK<-c()
 for (i in 1:Kmax) {
-  curvelengthfinal[i]<-sum(curvelenghtvec[[i]])/i
+  LK[i]<-prova(X,i,N)
   
 }
-
-#Take the logarithms of the lengths and of 1/k
-curvelenghtvec<-log(curvelengthfinal)
-kappa<-log((seq(1:Kmax)))
-
 #Made the plot and the regression
-plot(kappa,curvelenghtvec)
-LM<-lm(curvelenghtvec~kappa)
+
+KAPPA<-log(1/seq(1:Kmax))
+plot(KAPPA,LK)
+LM<-lm(LK~KAPPA)
 
 #HFD
 HFD<-LM$coefficients[2]
-

@@ -1,0 +1,40 @@
+---
+title: "Fractal Brownian Motion"
+author: "Alessio Cardarello"
+date: "24/11/2020"
+output: pdf_document
+---
+
+
+
+## Fractal Brownian Motion
+Fractal Brownian motion, also called fractional Brownian motion (fBm), is a class of stochastic processes characterized by a single parameter called the Hurst parameter, which is a real number between zero and one.  A fractional Brownian motion is a centered Gaussian process {$B^H_t, t\geq 0$} with covariance function equal to
+
+$$
+E[B^H_tB^H_s] = \frac{1}{2}(t^{2H}+s^{2H}-|t-s|^{2H})
+$$
+The $H \in (0,1)$ represents the Hurst Parameter. This process is a generalization of the standard Brownian motion. Indeed if the Hurst parameter equal 0.5 the fractal Brownian Motion is in fact a standard Brownian Motion. Differently from the standard Brownian motion, in the fBm the increments of the process need not be independent.
+The main properties of the fractal Brownian motion are the following
+
+**Self similarity**
+The process is self-similar, since in terms of probability distributions:
+
+$$B^H(at)\sim|a|^HB^H(t)$$
+
+It means the scale invariance of the process: in each time interval the behavior is the same, if we choose the right space scale.
+
+**Stationary increments**
+The process has stationary increments:
+
+$$B^H(t)-B^H(s)\sim B^H(t-s)$$
+
+The meaning of the stationary increments is that the probability distribution of any increment $B^H(t)-B^H(s)$ depends only on the length of the time interval beetween t and s.
+
+**Long range dependence**
+Fractional Brownian motion is a typical example of self-similar process whose increments exhibit long range dependence. For $H\neq 1/2$, the covariance of the
+increments $cov(B^H_tB^H_s)$ decays very slowly, as a power of the lag. For H > 1/2 this leads
+to long-range dependence in the increments:
+
+$$
+\sum_{n=1}^\infty E[B_H(1)(B_H(n+1)-B_H(n))] = \infty
+$$

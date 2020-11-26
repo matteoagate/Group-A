@@ -1,0 +1,36 @@
+---
+title: "Higuchi"
+author: "Alessio Cardarello"
+date: "26/11/2020"
+output: pdf_document
+---
+
+## Higuchi's fractal dimension
+Higuchi designed a method for finding the fractal dimension of an irregular curve, which is given by the following algorithm.
+Consider a finite set of time series observations taken at regular intervals:
+$$X(1),X(2),...,X(N)
+$$
+From this time series, are generated new time series:
+$$
+X^m_k:X(m),X(m+k),X(m+2k),...,X(m+[\frac{N-m}{k}]k)
+$$
+with m=1,...,k
+
+Both m and k are integers and [] denotes Gauss' notation. k and m represent the interval time and initial time, respectively. For every time interval k, a total of k new sets of time series are obtained. “The length” of the curve $L_m(k)$ is computed for each of the k time series or curves $X^m_k$.
+
+$$
+L_m(k)=\frac{1}{k} \left[\left(\sum_{i=1}^{int[\frac{N-m}{k}]}|x(m(ik)-x(m+(i-1)k)|\right)\frac{N-1}{int\left[\frac{N-m}{k}\right]k}\right]
+$$
+
+
+where N is the length of the original time series X. The following step is the averaging of $L_m(k)$ for all m: the result represents the mean value of the curve length $L(k)$ for each $k=1,...,k_{max}$ as
+
+$$
+L(k)=\frac{\sum_{m=1}^kL_m(k)}{k}
+$$
+
+$k_{max}$ values L(k) are obtained. In Higuchi’s algorithm there is a need to choose the value for $k_{max}$. But the criterion for the selection of these values is not presented, so it gives less effective results. Higuchi fixed the minimum value of K=2 and maximum value of K=8 for his algorithm. The Higuchi's Fractal Dimension is estimated as the slope of least squarest linear best fit from the plot of ln(L(k)) with ln(1/k). In order to find the Hurst Exponent H:
+$$
+H=2-HFD
+$$
+

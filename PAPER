@@ -1,0 +1,145 @@
+---
+title: "PROJECT"
+author: "Alessio Cardarello"
+date: "26/11/2020"
+output:  
+  pdf_document:
+        latex_engine: xelatex
+mainfont: Times New Roman
+sansfont: Times New Roman
+monofont: Times New Roman
+fontsize: 12pt
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Self similarity
+Hurst Exponent
+Fractal Market Hypotesis
+
+
+
+1.Self-similarity
+
+The concept of self-similarity regards many fields,from natural science to social phenomena.
+
+In mathematics, a self-similar object is exactly or approximately similar to a part of itself (the whole has the same shape as one or more of the parts).
+Scale invariance is an exact form of self-similarity where at any magnification (or shrinking) there is a smaller piece of the object that is similar to the whole.
+Self-similarity is a typical property of fractals,a geometric object that is similar to itself on all scales,but we are going to talk about this,in details,in the next paragraph. 
+
+However we are interesting in its implications in economic area.
+
+First observed self-similarity in economics time series by Mandelbrot. When he discovered that cotton price time series had approximately the same shape at different time scales.
+
+Scaling is a rule that relates returns over different sampling intervals. The shape of the distribution of returns should be the same, when the time scale is change
+
+Researchers  have  been  investing  scaling  laws  in  finance  and  economics  for  a  long  time.  The  first  example  of  scaling  laws  in  economics  is  due  to  the  economist Pareto in the 19th century.  At the late 1920’s, the work emphasized the appearance of patterns at different time scales. The presence of scaling laws has  also  been  researched  in  price  behaviour.  First  observed  self-similarity  in  economics time series by Mandelbrot. When he discovered that cotton price time series  had  approximately  the  same  shape  at  different  time  scales  [2].  Based  on  this  emprical  discovery,  Mandelbrot  later  proposed  stable  laws  and  Fractional  Brownian  Motions  as  a  model  for  price  behaviour.  
+In finance, the most important theories such as market efficiency, classical portfolio or the capital asset pricing model,
+have been developed under the hypothesis of normality in the evolution of trends.
+most financial models assume that stock returns can be modelized by
+independent and identically distributed (denoted i.i.d. herein) random variables and that the distribution that follows is the
+normal one.
+However Fama (1968) showed that the empirical distribution of stock market returns is leptokurtic and has heavy
+tails in comparison with the normal distribution. In recent financial time series analysis, long memory processes is one of
+the important elements in the informationally efficient market and risk management analyses.The long memory property
+indicated predictability components to some extent against the efficiency market hypothesis. The long memory
+provided additional stylized facts in the model specification which is crucial in the estimation, forecasting and especially in
+the market risk determination such as value-at-risk
+The definition of self-similarity is based on the property of equal magnification in all directions.
+
+The self-similarity for stochastic processes can be seen as the invariance in
+distribution under suitable scaling of time scale.
+
+In other words,if a portion of process is similar to the entire process we can talk about self-similarity. As we are considering a random environment, self-similarity applies to distributions, not to the actual realization of a process.\\
+
+Let (X,A,P) be a probability space,with $$t \in [0,\infty)$$ being time.We consider a random process $$X= \{X(t,\omega):t \geq 0\}$$ where $$\omega$$ belongs to a sample space $$\Omega$$. 
+Now we can give a proper definition:\\
+
+A random process X is said to be self-similar if there exists a parameter H>0 such that: 
+
+$$\{X(\alpha t,\omega)\} \overset{d}{=} \alpha^H\{X(t,\omega)\}$$
+
+for all $$\alpha>0$$ and $$t\geq 0$$
+
+
+
+## Fractal Brownian Motion
+Fractal Brownian motion, also called fractional Brownian motion (fBm), is a class of stochastic processes characterized by a single parameter called the Hurst parameter, which is a real number between zero and one.  A fractional Brownian motion is a centered Gaussian process {$B^H_t, t\geq 0$} with covariance function equal to
+
+$$
+E[B^H_tB^H_s] = \frac{1}{2}(t^{2H}+s^{2H}-|t-s|^{2H})
+$$
+The $H \in (0,1)$ represents the Hurst Parameter. This process is a generalization of the standard Brownian motion. Indeed if the Hurst parameter equal 0.5 the fractal Brownian Motion is in fact a standard Brownian Motion. Differently from the standard Brownian motion, in the fBm the increments of the process need not be independent.
+The main properties of the fractal Brownian motion are the following
+
+**Self similarity**
+The process is self-similar, since in terms of probability distributions:
+
+$$B^H(at)\sim|a|^HB^H(t)$$
+
+It means the scale invariance of the process: in each time interval the behavior is the same, if we choose the right space scale.
+
+**Stationary increments**
+The process has stationary increments:
+
+$$B^H(t)-B^H(s)\sim B^H(t-s)$$
+
+The meaning of the stationary increments is that the probability distribution of any increment $B^H(t)-B^H(s)$ depends only on the length of the time interval beetween t and s.
+
+**Long range dependence**
+Fractional Brownian motion is a typical example of self-similar process whose increments exhibit long range dependence. For $H\neq 1/2$, the covariance of the
+increments $cov(B^H_tB^H_s)$ decays very slowly, as a power of the lag. For H > 1/2 this leads
+to long-range dependence in the increments:
+
+$$
+\sum_{n=1}^\infty E[B_H(1)(B_H(n+1)-B_H(n))] = \infty
+$$
+
+
+Hurst exponent
+
+The investigation of a long term memory in time series and, particularly,on financial  time series has crucial importance.
+The reason of this importance is the fact that if we discover the presence of long term memory we can recognise a ppath of the time series and so we can,  on certain level, make a prediction of the future. This is in contrast with the efficient market theory, because the assumpion of the effinciency refers to the inclusion of all the new information by the stock prices, and that implies that there is no way to make a prediction, since the informations to be assimilated are not happened yet ??
+
+
+In order to investigate this feature, we have to estimate the a certain parameter.
+
+The random process that have generated the  process is said to be self-similar if :
+
+
+
+$$
+X(at,w) = a^HX (t,w)
+$$
+
+where $a>0$ and $t>=0$.
+The H in equation 1 is the Hurst esponent, also called self-similarity index or exponent.
+The name of the exponent is in honor of the ENglish hydorlogyst Harold Edwin Hurst, that,meanwhile he was studying the right dimension of the river dam, accounting for the volatility of the rain, discovered an high similarity between differetn section of  the Nile river.??
+In finance, one of the first ?? that studied the long memory feature of the financial time series was Mandelbrot, thet proposed that financiall  returns did have this property, and that a good way to incorporate it was by means of fractional Brownian motion, introduc ed by Peters.
+if the Hurst exponent is equal to $1/2$ the process is completeely random, so we have the property of a martigale, where the best expectation we can reach for the value of tomorrow is the value oof today, since there is no way of predictability.
+When the Hurst exponent is between one and one half we speak about an anti-persistent series and it has the main-reverting feature??, so, after positive return is more likely to have a negative return.
+The mean reverting feature become stronger and stronger the closer the Hurst exponent to zero.
+When the parameters goes from one half to one  we have a persistent series. 
+
+HURST EXPONENT AND FINANCIAL MARKET PREDICTABILITY
+measuring the self similar exponent
+Summarizing, the empirical evidence whether stock price returns do or do not exhibit serial correlation and so deviate
+from pure random walk properties is not at all unique
+
+Such series display
+seeming trends for some time, but these seeming trends are erratically interrupted by abrupt discontinuities. The
+power of the trend-reinforcing behavior increases as the value of the Hurst exponent increase to the upper ceiling
+value of one.
+
+
+We have defined what is fractal market hypothesis and we have underlined the fundamental intuition: it considers different investment horizons hold by investors. This is a key point, since this implies different ways in which market agents build their expectations. Short-run investors are focused on daily prices and on capitalising on quick investments, differently long-run investors are focused on longer oriented investments. When that two kind of actors develop mistrust on actual prices or on the economics future, they might change their position and cause a liquidity crisis. This is the case when, for the reasons previously said, long term investors choose to become trader and focalise its attention on daily operations, determining lack of balance between different positions in term of investments. Liquidity is defined by Nicola Anderson as the ease with which an investor is able to buy/sell a security without their act of buying/selling having a substantial effect on its price. It is clear that quality information and trustiness between investors are the reasons why illiquidity occurs. The Fractal Market Theory is a theory about stability of the market. Market is not perfect, as it is stated by the Efficient Market Hypothesis, but different information and its different spreading could cause illiquidity and instability. The main feature of the fractals is the self-similarity, that in finance occurs when different scaled-time series seem similar. This is a way to describe a sort of stability, since, as in nature, even when there could be a malformation, an unexplainable downturn in finance, there will be a general compensation if we look at the big picture and all the system will look stable. Detecting on when self-similarity lacks, or it is not perfectly respected, might help us to understand when the stability in the market is violated. So, liquidity ends when fractal structure is broken. Hurst exponent, as we have seen yet, is the best way to check the presence of fractals property. A number higher than 0.5, but below 1, means that a high value will probably be followed by a higher value; a number between 0 and 0.5 of the Hurst’s exponent tells us the opposite case. A series with long-term memory will have a higher Hurst exponent than one series with lower memory. This “memory” is not infinite and it is important to stress the fact that the value of the Hurst exponent of a fraction of a series should be higher that the value of the whole series. This concept is related to the way in which investors collect information and use it to do their activity, in fact a Hurst exponent is related to a fraction of time that reflects the investor horizon and it is not related to other relations with other investments horizons. At the end of this reasoning it is easy to say that an higher Hurst exponent means an higher liquidity in the specific time horizon in which the parameter is computed. In a market there will be a positive liquidity environment if the Hurst exponent will be higher than 0.5.
+
+
+
+
+
+

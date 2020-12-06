@@ -72,18 +72,18 @@ $$
 \phi_{Y(t,1)}(-2)=0.022=2.2\%
 $$
 $$
-\phi_{Y(t,6)}(-2)=0.207=20.7\% \ for \ H=0.5
+\phi_{Y(t,5)}(-2)=0.183=18.3\% \ for \ H=0.5
 $$
 $$
-\phi_{Y(t,6)}(-2)=0.316=31.6\% \ for \ H= 0.8 
+\phi_{Y(t,5)}(-2)=0.289=28.9\% \ for \ H= 0.8 
 $$
 $$
-\phi_{Y(t,6)}(-2)=0.099=9.9\% \ for \ H= 0.25   
+\phi_{Y(t,5)}(-2)=0.090=9\% \ for \ H= 0.25   
 $$ 
 
 For a daily investor, the probability of a negative log return is very low, 2.2%, so probably he will buy that stock. For a weekly investor, it is clear that if H grows, the probability to have a successive negative log return increases, so there will be more weekly investors who choose to sell that stock which match the long position of the daily investors. If the H is very low, daily and weekly investors operate in the same direction (in this case the long position) and there will be a problem of liquidity in the time scale (1,5).
 
-![Figure 2](C:/Users/ale-r/Desktop/PRIMO SEMESTRE/QUANTITATIVE FINANCIAL MODELLING/PROGETTO/PROGETTO R PART/DISTRIBUTION.png){width=75%}
+![Figure 2](C:/Users/ale-r/Desktop/PRIMO SEMESTRE/QUANTITATIVE FINANCIAL MODELLING/PROGETTO/PROGETTO R PART/Rplot.png){width=75%}
 
 
 
